@@ -1,18 +1,15 @@
-package com.italo.filmes.ui.main
+package com.italo.filmes.data.repository
 
-import android.content.Context
-import com.italo.filmes.data.Filme
-import dagger.hilt.android.qualifiers.ApplicationContext
+import com.italo.filmes.data.model.Filme
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-class MainRepository @Inject constructor(
-    @ApplicationContext private val context: Context
-) : MainRepositoryInterface {
+class MainLocalDataSource @Inject constructor() : MainDataSource {
 
-    override suspend fun getFilmes(): List<Filme> {
+    //simulating api call using kotlin coroutines
+    override suspend fun fetchFilmes(): List<Filme> {
         return withContext(Dispatchers.Default) {
             delay(3000)
             listOf(

@@ -2,7 +2,8 @@ package com.italo.filmes.ui.main
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.italo.filmes.data.Filme
+import com.italo.filmes.data.model.Filme
+import com.italo.filmes.data.repository.MainRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

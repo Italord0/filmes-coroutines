@@ -8,7 +8,7 @@ import javax.inject.Inject
 
 class MainLocalDataSource @Inject constructor() : MainDataSource {
 
-    //simulating api call using kotlin coroutines
+    // simulating api call using kotlin coroutines
     override suspend fun fetchFilmes(): List<Filme> {
         return withContext(Dispatchers.Default) {
             delay(3000)
@@ -18,5 +18,4 @@ class MainLocalDataSource @Inject constructor() : MainDataSource {
             )
         }
     }
-
 }

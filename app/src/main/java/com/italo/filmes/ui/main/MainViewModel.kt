@@ -16,15 +16,13 @@ class MainViewModel @Inject constructor (private val repository: MainRepository)
 
     val filmesLiveData = MutableLiveData<List<Filme>>()
 
-    fun getFilmes(){
+    fun getFilmes() {
         CoroutineScope(Dispatchers.Main).launch {
             val filmes = withContext(Dispatchers.Default) {
                 repository.getFilmes()
             }
 
             filmesLiveData.value = filmes
-
         }
     }
-
 }

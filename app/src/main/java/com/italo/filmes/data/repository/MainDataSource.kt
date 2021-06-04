@@ -4,6 +4,5 @@ import com.italo.filmes.data.model.Filme
 
 interface MainDataSource {
 
-    suspend fun fetchFilmes() : List<Filme>
-
+    suspend fun fetchFilmes(): List<Filme>
 }

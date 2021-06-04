@@ -24,5 +24,4 @@ abstract class DataModule {
     abstract fun bindDataSource(
         dataSource: MainDataSource
     ): MainDataSource
-
 }

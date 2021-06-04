@@ -4,6 +4,5 @@ import com.italo.filmes.data.model.Filme
 
 interface MainRepositoryInterface {
 
-    suspend fun getFilmes() : List<Filme>
-
+    suspend fun getFilmes(): List<Filme>
 }

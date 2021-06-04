@@ -14,14 +14,15 @@ class MainFragment : Fragment() {
 
     private lateinit var binding: FragmentMainBinding
 
-    private val viewModel : MainViewModel by viewModels()
+    private val viewModel: MainViewModel by viewModels()
 
     companion object {
         fun newInstance() = MainFragment()
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
 
@@ -33,11 +34,13 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.filmesLiveData.observe(viewLifecycleOwner, { filmes ->
-            binding.textViewFilmes.text = filmes[0].titulo
-        })
+        viewModel.filmesLiveData.observe(
+            viewLifecycleOwner,
+            { filmes ->
+                binding.textViewFilmes.text = filmes[0].titulo
+            }
+        )
 
         viewModel.getFilmes()
     }
-
 }

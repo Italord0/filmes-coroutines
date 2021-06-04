@@ -1,7 +1,7 @@
 package com.italo.filmes.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.italo.filmes.R
 import com.italo.filmes.databinding.ActivityMainBinding
 import com.italo.filmes.ui.main.MainFragment

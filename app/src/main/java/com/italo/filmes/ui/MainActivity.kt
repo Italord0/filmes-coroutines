@@ -5,7 +5,9 @@ import android.os.Bundle
 import com.italo.filmes.R
 import com.italo.filmes.databinding.ActivityMainBinding
 import com.italo.filmes.ui.main.MainFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding

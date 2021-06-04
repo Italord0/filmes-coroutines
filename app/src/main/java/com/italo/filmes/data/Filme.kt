@@ -1,4 +1,4 @@
-package com.italo.filmes.ui.main
+package com.italo.filmes.data
 
 data class Filme(
     val id: Int,

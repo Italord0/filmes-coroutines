@@ -1,23 +1,24 @@
 package com.italo.filmes.ui.main
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import com.italo.filmes.databinding.FragmentMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class MainFragment : Fragment() {
 
     private lateinit var binding: FragmentMainBinding
 
+    private val viewModel : MainViewModel by viewModels()
+
     companion object {
         fun newInstance() = MainFragment()
     }
-
-    private lateinit var viewModel: MainViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,18 +30,14 @@ class MainFragment : Fragment() {
         return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel =
-            ViewModelProvider(this, MainViewModel.MainViewModelFactory(MainRepository())).get(
-                MainViewModel::class.java
-            )
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         viewModel.filmesLiveData.observe(viewLifecycleOwner, { filmes ->
             binding.textViewFilmes.text = filmes[0].titulo
         })
 
-        viewModel.getFilmesCoroutines()
-
+        viewModel.getFilmes()
     }
+
 }
